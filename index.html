@@ -3,17 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome | Himel's Space</title>
-  <link rel="icon" type="image/x-icon" href="/media/thtamzid40/Project/College/final/favicon2.ico">
+  <title>Welcome | Loading 98%</title>
+  <link rel="icon" type="image/x-icon" sizes="32x32" href="/media/thtamzid40/Project/College/final/favicon3.ico">
 
   <style>
+    /* ---------- Base Setup ---------- */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #000;
-      color: #0f0;
-      font-family: 'Courier New', monospace;
       margin: 0;
       padding: 0;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
       text-align: center;
+      overflow: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* ---------- Animated Background ---------- */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(-45deg, #000000, #001f1f, #002f00, #001010);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      z-index: -2;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ---------- Floating Light Particles ---------- */
+    .particle {
+      position: fixed;
+      background-color: rgba(0, 255, 0, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: float 10s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    /* ---------- Loading Screen ---------- */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: opacity 1s ease;
+    }
+
+    #loader h1 {
+      color: #00ff40;
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    .progress-bar {
+      width: 60%;
+      height: 15px;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #00ff40;
+      transition: width 0.1s linear;
+    }
+
+    /* ---------- Main Content ---------- */
+    #content {
+      opacity: 0;
+      transition: opacity 1s ease;
+      padding-bottom: 50px;
     }
 
     header {
@@ -21,6 +107,7 @@
       color: #fff;
       padding: 10px;
       font-size: 1.2em;
+      border-radius: 0 0 10px 10px;
     }
 
     main {
@@ -53,6 +140,7 @@
       background-color: rgba(255,255,255,0.05);
       padding: 15px;
       border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,255,0,0.3);
     }
 
     footer {
@@ -60,6 +148,7 @@
       color: #aaa;
       padding: 15px;
       font-size: 0.9em;
+      border-top: 2px solid #00ff40;
     }
 
     mark {
@@ -77,66 +166,110 @@
     li {
       padding: 5px 0;
     }
-
   </style>
 </head>
 
 <body>
-  <header>
-    <strong>Hey! How are you? _________</strong>
-  </header>
 
-  <main>
+  <!-- Floating Particles (10) -->
+  <script>
+    for (let i = 0; i < 10; i++) {
+      let particle = document.createElement("div");
+      particle.classList.add("particle");
+      particle.style.width = `${Math.random() * 8 + 3}px`;
+      particle.style.height = particle.style.width;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${Math.random() * 8 + 5}s`;
+      document.body.appendChild(particle);
+    }
+  </script>
 
-    <div class="section">
-      <h2>H.W.</h2>
-      <ul>
-        <li>(a + b)<sup>3</sup> = a<sup>3</sup> + b<sup>3</sup> + 3a<sup>2</sup>b + 3ab<sup>2</sup></li>
-        <li>(x<sup>2</sup> - y<sup>2</sup>) = (x + y)(x - y)</li>
-        <li>(a<sup>x</sup>)<sup>y</sup> = a<sup>xy</sup></li>
-        <li>a<sub>x</sub><sup>2</sup> b<sub>y</sub><sup>2</sup></li>
-      </ul>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <h1>Loading... 98%</h1>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
     </div>
+  </div>
 
-    <div class="section">
-      <h2>😄 Connect with Me</h2>
-      <p><a href="https://www.instagram.com/unexpected__s_2.0/">Instagram</a></p>
-      <p><a href="https://www.facebook.com/m.uNxpected.40">Facebook</a></p>
-      <p>or scan my QR below 👇</p>
-      <img src="insta.png" width="225" height="275" alt="Instagram QR">
-    </div>
+  <!-- Main Content -->
+  <div id="content">
+    <header>
+      <strong>Hey! How are you? _________</strong>
+    </header>
 
-    <div class="section">
-      <h2>📸 My Images</h2>
-      <img src="image_himel.jpg" width="350" height="450" alt="Himel Picture">
-      <img src="CT-2.jpeg" width="400" height="300" alt="CT-2">
-      <img src="1-2Yearly.jpeg" width="400" height="300" alt="1-2 Yearly">
-      <img src="C_routine.jpeg" width="600" height="450" alt="Class Routine">
-    </div>
+    <main>
+      <div class="section">
+        <h2>H.W.</h2>
+        <ul>
+          <li>(a + b)<sup>3</sup> = a<sup>3</sup> + b<sup>3</sup> + 3a<sup>2</sup>b + 3ab<sup>2</sup></li>
+          <li>(x<sup>2</sup> - y<sup>2</sup>) = (x + y)(x - y)</li>
+          <li>(a<sup>x</sup>)<sup>y</sup> = a<sup>xy</sup></li>
+          <li>a<sub>x</sub><sup>2</sup> b<sub>y</sub><sup>2</sup></li>
+        </ul>
+      </div>
 
-    <div class="section">
-      <h2>📚 Learn More</h2>
-      <p><mark>HTML</mark> — HyperText Markup Language</p>
-      <p><a href="https://www.w3schools.com/">Visit W3Schools</a></p>
-      <p><a href="https://www.youtube.com/watch?v=DxK6YBP3GWk">Udvash Vector YT</a></p>
-    </div>
+      <div class="section">
+        <h2>😄 Connect with Me</h2>
+        <p><a href="https://www.instagram.com/unexpected__s_2.0/">Instagram</a></p>
+        <p><a href="https://www.facebook.com/m.uNxpected.40">Facebook</a></p>
+        <p>or scan my QR below 👇</p>
+        <img src="insta.png" width="225" height="275" alt="Instagram QR">
+      </div>
 
-    <div class="section">
-      <h2>⚠️ Warning</h2>
-      <p><b style="background-color:tomato; color:white; padding:5px; border-radius:4px;">Do not DO IT HERE!!</b></p>
-      <img src="warn.png" width="100" height="130" alt="Warning Icon">
-    </div>
+      <div class="section">
+        <h2>📸 My Images</h2>
+        <img src="image_himel.jpg" width="350" height="450" alt="Himel Picture">
+        <img src="CT-2.jpeg" width="400" height="300" alt="CT-2">
+        <img src="1-2Yearly.jpeg" width="400" height="300" alt="1-2 Yearly">
+        <img src="C_routine.jpeg" width="600" height="450" alt="Class Routine">
+      </div>
 
-  </main>
+      <div class="section">
+        <h2>📚 Learn More</h2>
+        <p><mark>HTML</mark> — HyperText Markup Language</p>
+        <p><a href="https://www.w3schools.com/">Visit W3Schools</a></p>
+        <p><a href="https://www.youtube.com/watch?v=DxK6YBP3GWk">Udvash Vector YT</a></p>
+      </div>
 
-  <footer>
-    <p>😇ᥫ᭡ | ᶦ ᵃᵐ ᴴᶤᵐᵉˡ | ༻╰‿╯🔪</p>
-    <p>|.ヒメル & 히멜 & هيميل .|</p>
-    <p>Credit: <b>[ Himel ]</b></p>
-    <p>Contact: 01708044940</p>
-    <p>FB: T H Tamzid (HimeL)</p>
-    <p>MISSION PASSED ✔ RESPECT +++</p>
-  </footer>
+      <div class="section">
+        <h2>⚠️ Warning</h2>
+        <p><b style="background-color:tomato; color:white; padding:5px; border-radius:4px;">Do not DO IT HERE!!</b></p>
+        <img src="warn.png" width="100" height="130" alt="Warning Icon">
+      </div>
+    </main>
+
+    <footer>
+      <p>😇ᥫ᭡ | ᶦ ᵃᵐ ᴴᶤᵐᵉˡ | ༻╰‿╯🔪</p>
+      <p>|.ヒメル & 히멜 & هيميل .|</p>
+      <p>Credit: <b>[ Himel ]</b></p>
+      <p>Contact: 01708044940</p>
+      <p>FB: T H Tamzid (HimeL)</p>
+      <p>MISSION PASSED ✔ RESPECT +++</p>
+    </footer>
+  </div>
+
+  <script>
+    // Loading screen animation
+    let fill = document.querySelector(".progress-fill");
+    let loader = document.getElementById("loader");
+    let content = document.getElementById("content");
+    let width = 0;
+
+    let interval = setInterval(() => {
+      if (width >= 100) {
+        clearInterval(interval);
+        loader.style.opacity = 0;
+        setTimeout(() => {
+          loader.style.display = "none";
+          content.style.opacity = 1;
+          document.body.style.overflow = "auto";
+        }, 1000);
+      } else {
+        width += 2;
+        fill.style.width = width + "%";
+      }
+    }, 60);
+  </script>
 </body>
 </html>
-
