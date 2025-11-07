@@ -1,0 +1,17 @@
+৬/ HTML-এর attribute কাকে বলে?
+উত্তর: TAG-এ অতিরিক্ত তথ্য বা বৈশিষ্ট্য যোগ করার জন্য attribute ব্যবহার করা হয়। এটি TAG-এর OPENING অংশে লেখা হয়।
+উদাহরণ:  <img src= "image.jpg"  alt="My Image">
+
+৭/ IP (INTERNET PROTOCOL) ADDRESS কাকে বলে?
+উত্তর: Internet-এ যুক্ত প্রতিটি device-এর জন্য দেওয়া অনন্য (UNIQUE) সংখ্যার ঠিকানাকে IP ADDRESS বলে।
+উদাহরণ: IPv4 - 192.168.0.1
+      IPv6 - 	
+৮/ Dynamic ও Static website কাকে বলে?
+উত্তর: Dynamic - যেসব website-এর CONTENT নির্দিষ্ট থাকে এবং ব্যবহারকারীর input-এ পরিবর্তন হয় না, তাকে Dynamic website বলে।
+     Static -  যেসব website-এর CONTENT নির্দিষ্ট থাকে না এবং ব্যবহারকারীর input বা database-এর উপর ভিত্তি করে পরিবর্তন হয়, তাকে Static website বলে।
+৯/ WEB BROWSER কাকে বলে?
+উত্তর: INTERNET-এ WEBSITE দেখার জন্য ব্যবহৃত SOFTWARE-কে WEB BROWSER বলে।
+উদাহরণ: Chrome Onion Firefox edge 
+১০/ HTML-এর পূর্ণরূপ কী ও এর জনক কে?
+উত্তর: HTML-এর পূর্ণরূপ হলো HyperText Markup Language এবং
+            এর জনক Tim Berners-Lee।
